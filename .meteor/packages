@@ -9,14 +9,8 @@ standard-app-packages
 backbone
 accounts-base
 accounts-password
-accounts-twitter
 spiderable
 email
-accounts-facebook
-service-configuration
-accounts-ui
-reactive-var
-http
 
 # Atmosphere Packages
 
@@ -86,3 +80,12 @@ telescope-getting-started
 telescope-subscribe-to-posts
 
 # Custom Packages
+
+telescope-update-prompt
+telescope-notifications
+
+# Accounts Templates
+service-configuration
+accounts-ui
+splendido:accounts-templates-unstyled
+kenton:accounts-sandstorm

@@ -2,6 +2,7 @@ Accounts.onCreateUser(function(options, user){
 
   // ------------------------------ Properties ------------------------------ //
 
+  user.username = options.profile.name;
   var userProperties = {
     profile: options.profile || {},
     karma: 0,
@@ -21,20 +22,31 @@ Accounts.onCreateUser(function(options, user){
   // set email on profile
   if (options.email)
     user.profile.email = options.email;
-    
+
   // if email is set, use it to generate email hash
   if (getEmail(user))
     user.email_hash = getEmailHash(user);
-  
+
   // set username on profile
   if (!user.profile.name)
     user.profile.name = user.username;
 
+  // set notifications default preferences
+  user.profile.notifications = {
+    users: false,
+    posts: false,
+    comments: true,
+    replies: true
+  };
+
   // create slug from username
   user.slug = slugify(getUserName(user));
 
-  // if this is not a dummy account, and is the first user ever, make them an admin
-  user.isAdmin = (!user.profile.isDummy && Meteor.users.find({'profile.isDummy': {$ne: true}}).count() === 0) ? true : false;
+  if (_.contains(user.services.sandstorm.permissions, 'admin'))
+    user.isAdmin = true;
+
+  // give new users a few invites (default to 3)
+  user.inviteCount = getSetting('startInvitesCount', 3);
 
   // ------------------------------ Callbacks ------------------------------ //
 
