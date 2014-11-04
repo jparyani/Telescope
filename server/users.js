@@ -2,7 +2,7 @@ Accounts.onCreateUser(function(options, user){
 
   // ------------------------------ Properties ------------------------------ //
 
-  user.username = options.profile.name;
+  user.username = user._id;
   var userProperties = {
     profile: options.profile || {},
     karma: 0,
@@ -40,7 +40,7 @@ Accounts.onCreateUser(function(options, user){
   };
 
   // create slug from username
-  user.slug = slugify(getUserName(user));
+  user.slug = user._id;
 
   if (_.contains(user.services.sandstorm.permissions, 'admin'))
     user.isAdmin = true;
