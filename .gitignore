@@ -30,4 +30,4 @@ scratch
 .meteor/local
 .meteor/meteorite
 mup.json
-.deploy/*.meteor-spk
+.meteor-spk
