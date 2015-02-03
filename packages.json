@@ -2,5 +2,5 @@
   "csv": "0.4.0",
   "email-templates": "1.1.2",
   "handlebars": "2.0.0",
-  "capnp": "0.1.6"
+  "capnp": "0.1.11"
 }

@@ -39,7 +39,13 @@ const pkgdef :Spk.PackageDefinition = (
     # The following directories will be copied into your package.
     searchPath = [
       ( sourcePath = ".meteor-spk/deps" ),
-      ( sourcePath = ".meteor-spk/bundle" )
+      ( sourcePath = ".meteor-spk/bundle" ),
+      ( sourcePath = "/usr/local/lib/libkj-0.6-dev.so", packagePath = "usr/lib/libkj-0.6-dev.so" ),
+      ( sourcePath = "/usr/local/lib/libkj-async-0.6-dev.so", packagePath = "usr/lib/libkj-async-0.6-dev.so" ),
+      ( sourcePath = "/usr/local/lib/libcapnp-0.6-dev.so", packagePath = "usr/lib/libcapnp-0.6-dev.so" ),
+      ( sourcePath = "/usr/local/lib/libcapnpc-0.6-dev.so", packagePath = "usr/lib/libcapnpc-0.6-dev.so" ),
+      ( sourcePath = "/usr/local/lib/libcapnp-rpc-0.6-dev.so", packagePath = "usr/lib/libcapnp-rpc-0.6-dev.so" ),
+      ( sourcePath = "/opt/sandstorm/latest/usr/include", packagePath = "usr/include" )
     ]
   ),
 
