@@ -11,6 +11,8 @@ accounts-base
 accounts-password
 spiderable
 email
+reactive-var
+http
 
 # Atmosphere Packages
 
@@ -76,7 +78,7 @@ telescope-singleday
 telescope-invites
 telescope-post-by-feed
 telescope-releases
-telescope-getting-started
+#telescope-getting-started
 telescope-subscribe-to-posts
 
 # Accounts Templates
