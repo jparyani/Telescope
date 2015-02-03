@@ -43,11 +43,13 @@ const pkgdef :Spk.PackageDefinition = (
     ]
   ),
 
-  alwaysInclude = [ "." ]
+  alwaysInclude = [ "." ],
   # This says that we always want to include all files from the source map.
   # (An alternative is to automatically detect dependencies by watching what
   # the app opens while running in dev mode. To see what that looks like,
   # run `spk init` without the -A option.)
+
+  bridgeConfig = (viewInfo = (permissions = [(name = "admin")]))
 );
 
 const myCommand :Spk.Manifest.Command = (
