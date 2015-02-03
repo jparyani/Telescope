@@ -79,13 +79,7 @@ telescope-releases
 telescope-getting-started
 telescope-subscribe-to-posts
 
-# Custom Packages
-
-telescope-update-prompt
-telescope-notifications
-
 # Accounts Templates
 service-configuration
 accounts-ui
-splendido:accounts-templates-unstyled
 kenton:accounts-sandstorm
