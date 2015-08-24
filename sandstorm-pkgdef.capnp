@@ -17,22 +17,64 @@ const pkgdef :Spk.PackageDefinition = (
     # This manifest is included in your app package to tell Sandstorm
     # about your app.
 
-    appVersion = 1,  # Increment this for every release.
+    appVersion = 2,  # Increment this for every release.
+
+    appTitle = (defaultText = "Telescope"),
+
+    appMarketingVersion = (defaultText = "0.14.0"),
 
     actions = [
       # Define your "new document" handlers here.
       ( title = (defaultText = "New Telescope"),
+        nounPhrase = (defaultText = "telescope"),
         command = .myCommand
         # The command to run when starting for the first time. (".myCommand"
         # is just a constant defined at the bottom of the file.)
       )
     ],
 
-    continueCommand = .myCommand
+    continueCommand = .myCommand,
     # This is the command called to start your app back up after it has been
     # shut down for inactivity. Here we're using the same command as for
     # starting a new instance, but you could use different commands for each
     # case.
+
+    metadata = (
+      icons = (
+        appGrid = (png = (
+          dpi1x = embed "app-graphics/telescope-128.png",
+          dpi2x = embed "app-graphics/telescope-256.png"
+        )),
+        grain = (png = (
+          dpi1x = embed "app-graphics/telescope-24.png",
+          dpi2x = embed "app-graphics/telescope-48.png"
+        )),
+        market =  (png = (
+          dpi1x = embed "app-graphics/telescope-150.png",
+          dpi2x = embed "app-graphics/telescope-300.png"
+        )),
+      ),
+
+      website = "http://www.telescopeapp.org/",
+      codeUrl = "https://github.com/jparyani/Telescope",
+      license = (openSource = mit),
+      categories = [social],
+
+      author = (
+        contactEmail = "jparyani@sandstorm.io",
+        pgpSignature = embed "pgp-signature",
+        upstreamAuthor = "Sacha Greif & Tom Coleman",
+      ),
+      pgpKeyring = embed "pgp-keyring",
+
+      description = (defaultText = embed "description.md"),
+
+      screenshots = [
+        (width = 448, height = 354, png = embed "sandstorm-screenshot.png")
+      ],
+
+      changeLog = (defaultText = embed "History.md"),
+    ),
   ),
 
   sourceMap = (
