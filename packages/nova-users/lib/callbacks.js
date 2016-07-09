@@ -111,6 +111,8 @@ function setupUser (user, options) {
     user.telescope.email = user.services.github.email;
   } else if (user.services.google && user.services.google.email) {
     user.telescope.email = user.services.google.email;
+  } else if (user.services.sandstorm) {
+    user.telescope.email = user.services.sandstorm.id + "@sandstorm.local";
   }
 
   // generate email hash

@@ -44,4 +44,4 @@ node_modules
 bundle.tar.gz
 
 jsdoc-conf.json
-jsdoc.json
+jsdoc.json.meteor-spk

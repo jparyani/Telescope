@@ -114,10 +114,10 @@ Meteor.methods({
 
 Meteor.startup(function () {
   // insert dummy content only if createDummyContent hasn't happened and there aren't any posts in the db
-  if (!Users.find().count() && !Events.findOne({name: 'createDummyContent'}) && !Posts.find().count()) {
-    createDummyUsers();
-    createDummyPosts();
-    createDummyComments();
-    Events.log({name: 'createDummyContent', unique: true, important: true});
-  }
+  // if (!Users.find().count() && !Events.findOne({name: 'createDummyContent'}) && !Posts.find().count()) {
+  //   createDummyUsers();
+  //   createDummyPosts();
+    // createDummyComments();
+  //   Events.log({name: 'createDummyContent', unique: true, important: true});
+  // }
 });

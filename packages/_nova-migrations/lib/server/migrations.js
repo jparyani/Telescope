@@ -543,7 +543,7 @@ var migrationsList = {
         } else if (user.profile && user.profile[key]) { // look for it in user.profile object
           telescopeUserData[key] = user.profile[key];
         }
-        
+
       });
 
       // console.log(telescopeUserData);
@@ -583,41 +583,41 @@ var migrationsList = {
 
   //   // find all root comments and set topLevelCommentId on their root children
   //   Comments.find({parentCommentId: {$exists : false}}).forEach(function (comment) {
-      
+
   //     // topLevelCommentId is the root comment._id
   //     var topLevelCommentId = comment._id;
   //     console.log("Root Comment found: " + topLevelCommentId);
-      
+
   //     // find childComments that have this root comment as parentCommentId
   //     Comments.find({parentCommentId: comment._id}).forEach(function (childComment) {
   //       i++;
   //       updateParentAndChild(topLevelCommentId, childComment._id);
   //     });
-    
+
   //   });
-    
+
   //   function updateParentAndChild(topLevelCommentId, parentId) {
-    
+
   //     i++;
   //     console.log("Parent Comment: " + parentId, " top level comment " + topLevelCommentId);
-     
+
   //     Comments.update(parentId, {$set: {'topLevelCommentId': topLevelCommentId}}, {multi: false, validate: false});
-    
+
   //     var childComments = Comments.find({topLevelCommentId: {$exists : false}, parentCommentId: parentId});
-    
+
   //     console.log('> Found '+childComments.count()+' child comments.\n');
-    
+
   //     childComments.forEach(function(childComment){
   //       i++;
-    
+
   //       // find all nested childComments and set topLevelCommentId
   //       console.log("Child Comment: " + childComment._id, " top level comment " + topLevelCommentId);
-    
+
   //       // set nested childComment to use parent's topLevelCommentId
   //       Comments.update(childComment._id, {$set: {'topLevelCommentId': topLevelCommentId}}, {multi: false, validate: false});
   //       updateParentAndChild(topLevelCommentId, childComment._id, true);
   //     });
-    
+
   //   }
   //   console.log("---------------------");
   //   return i;
@@ -646,7 +646,7 @@ var migrationsList = {
       }
     });
     return i;
-  },  
+  },
   migrateNewsletterSettings: function () {
     var i = 0;
     var allUsers = Meteor.users.find({
@@ -734,6 +734,18 @@ var migrationsList = {
     Telescope.settings.collection.find({outsideLinksPointTo: {$exists : true}}).forEach(function (setting) {
       i++;
       Telescope.settings.collection.update(setting._id, {$set: {RSSLinksPointTo: setting.outsideLinksPointTo}});
+    });
+    return i;
+  },
+  ensureEmailHash: function () {
+    var i = 0;
+    var allUsers = Meteor.users.find({"telescope.emailHash": {$exists: false}});
+
+    allUsers.forEach(function(user){
+      i++;
+
+      console.log('> Updating user '+user._id+' (' + user.username + ')');
+      Meteor.users.update(user._id, {$set: {"telescope.emailHash": "0", "telescope.email": user._id + "@sandstorm.local"}});
     });
     return i;
   }

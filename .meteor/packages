@@ -41,3 +41,5 @@ nova:debug
 ############ Your Packages ############
 
 # my-custom-package
+kenton:accounts-sandstorm
+migrations

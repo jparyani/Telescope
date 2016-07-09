@@ -19,6 +19,7 @@
     "mailchimp": "^1.1.6",
     "marked": "^0.3.5",
     "meteor-node-stubs": "^0.2.3",
+    "mobx": "^2.3.5",
     "moment": "^2.13.0",
     "react": "~15.0.1",
     "react-addons-pure-render-mixin": "~15.0.0",

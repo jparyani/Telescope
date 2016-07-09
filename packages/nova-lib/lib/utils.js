@@ -59,7 +59,7 @@ Telescope.utils.camelCaseify = function(str) {
  * @param {Number} numWords - Number of words to trim sentence to.
  */
 Telescope.utils.trimWords = function(s, numWords) {
-  
+
   if (!s)
     return s;
 
@@ -114,7 +114,9 @@ Telescope.utils.getDateRange = function(pageNumber) {
 //////////////////////////
 // URL Helper Functions //
 //////////////////////////
-
+Meteor.absoluteUrl = function () {
+  return "/";
+}
 /**
  * @summary Returns the user defined site URL or Meteor.absoluteUrl
  */

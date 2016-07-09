@@ -21,7 +21,7 @@ class Newsletter extends Component {
       !Users.getSetting(context.currentUser, 'newsletter_subscribeToNewsletter', false);
 
     this.state = {
-      showBanner: showBanner
+      showBanner: false
     };
   }
 
@@ -31,7 +31,7 @@ class Newsletter extends Component {
         Cookie.load('showBanner') !== "no" &&
         !Users.getSetting(nextContext.currentUser, 'newsletter_subscribeToNewsletter', false);
 
-      this.setState({showBanner});
+      this.setState({showBanner: false});
     }
   }
 
